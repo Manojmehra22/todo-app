@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css"
+            rel="stylesheet" />
+    </head>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'gilroy';
+        }
+        html,body{
+            height: 100%;
+            width: 100%;
+        }
+        
+        
+        #box{
+            border: 2px solid black;
+            border-radius: 5px;
+            width: 450px;
+            padding: 10px;
+            background-color: lightseagreen;
+            text-align: center;
+            margin-left: 50px;
+            
+        }
+        .box2{
+            height: 50px;
+            width: 450px;
+            display: flex;
+            margin: 10px;
+            padding: 10px;
+            
+            }
+             input{
+                height: 30px;
+                width: 300px;
+                background-color: antiquewhite;
+                border-radius: 5px;
+                
+            }
+            button{
+                width: 50px;
+                background-color: green;
+                color: white;
+                margin-left: 5px;
+                border-radius: 5px;
+                border: 2px solid black;
+                cursor: pointer;
+            }
+            h2{
+                text-align: center;
+                
+            }
+            .text ul{
+                position: relative;
+                background-color: lightcoral;
+                color: azure;
+                font-size: 19px;
+                text-align: left;
+                margin-bottom: 7px;
+                padding:5px;
+                width: 350px;
+                margin-left: 20px;
+
+            }
+            .text ul i{
+                position: absolute;
+                right: 10px;
+                cursor: pointer;
+            }
+            
+
+    </style>
+    <body>
+        <div id="box">
+            <h2>To-Do list</h2>
+            <div class="box2">
+                <label><input type="text"
+                        placeholder="Enter your task......" id="main"></label>
+                <button class="btn">ADD</button>
+            </div>
+            <div class="text">
+
+            </div>
+
+        </div>
+
+        <script>
+           var man= document.querySelector("#main");
+           var txt= document.querySelector(".text");
+           var btn=document.querySelector(".btn");
+
+
+           btn.addEventListener("click",function(){
+            if(man.value==""){
+                alert("Please Enter Task")
+            }else{
+                var newEle=document.createElement("ul");
+                newEle.innerHTML=`${man.value}<i class="ri-delete-bin-line"></i>`;
+                txt.appendChild(newEle);
+                man.value="";
+                newEle.querySelector("i").addEventListener("click",remove)
+                function remove(){
+                    newEle.remove()
+                }
+            }
+           });
+        </script>
+
+    </body>
+</html>
